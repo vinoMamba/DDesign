@@ -1,0 +1,20 @@
+/* reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font: 14px/1.5 "Microsoft Yahei", "Helvetica Neue", Helvetica, Arial,
+    "Ping Fang SC", sans-serif;
+}
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+ol,
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}

@@ -1,6 +1,6 @@
 import { test, expect } from "vitest";
 import { mount } from "@vue/test-utils";
-import { HButton } from "../index";
+import { HButton } from "@/lib/Button";
 
 test("HButton", async () => {
   const wrapper = mount(HButton, {

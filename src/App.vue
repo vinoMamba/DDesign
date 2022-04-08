@@ -6,10 +6,12 @@ function handleClick() {
 </script>
 
 <template>
-  <HButton @click="handleClick">点击</HButton>
+  <HButton @click="handleClick">click me</HButton>
 </template>
 
 <style>
+@import "@/lib/reset.module.css";
+@import "@/lib/root.module.css";
 @import "@/assets/base.css";
 
 #app {

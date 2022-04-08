@@ -1,0 +1,14 @@
+.layout {
+  color: var(--common-font-white);
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  text-align: center;
+  white-space: nowrap;
+  background-color: var(--common-blue1);
+  padding: var(--p-unit) var(--p-l);
+  border-radius: var(--common-border-raidus-s);
+}
+.layout:hover {
+  background-color: var(--common-blue1-hover);
+}

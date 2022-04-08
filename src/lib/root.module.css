@@ -1,0 +1,43 @@
+/*color*/
+:root {
+  --common-black1: rgba(23, 26, 29, 1);
+  --common-black2: rgba(23, 26, 29, 0.6);
+  --common-black3: rgba(23, 26, 29, 0.24);
+  --common-blue1: rgba(0, 137, 255, 1);
+  --common-blue2: rgba(0, 137, 255, 0.48);
+  --common-blue3: rgba(0, 137, 255, 0.12);
+  --common-green1: rgba(0, 176, 66, 1);
+  --common-green2: rgba(0, 176, 66, 0.48);
+  --common-green3: rgba(0, 176, 66, 0.12);
+  --common-orange: rgba(255, 146, 0, 1);
+  --common-orange2: rgba(255, 146, 0, 0.48);
+  --common-orange3: rgba(255, 146, 0, 0.12);
+  --common-red: rgba(255, 82, 25, 1);
+  --common-red2: rgba(255, 82, 25, 0.48);
+  --common-red3: rgba(255, 82, 25, 0.12);
+  --common-font-color1: rgba(23, 26, 29, 1);
+  --common-font-color2: rgba(23, 26, 29, 0.6);
+  --common-font-color3: rgba(23, 26, 29, 0.4);
+  --common-font-color4: rgba(23, 26, 29, 0.24);
+  --common-font-white: rgba(255, 255, 255, 1);
+}
+/*hover*/
+:root {
+  --common-blue1-hover: #007eea;
+}
+
+/* border raidus*/
+:root {
+  --common-border-raidus-s: 4px;
+  --common-border-raidus-m: 6px;
+  --common-border-raidus-l: 8px;
+}
+/*padding*/
+:root {
+  --p-unit: 4px;
+  --p-s: 8px;
+  --p-m: 12px;
+  --p-l: 24px;
+  --p-xl: 40px;
+  --p-xxl: 64px;
+}
