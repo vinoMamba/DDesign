@@ -1,14 +1,21 @@
 .layout {
-  color: var(--common-font-white);
-  border: none;
+  color: var(--common-font-color1);
+  border: var(--common-border);
   outline: none;
   font-size: 1rem;
   text-align: center;
   white-space: nowrap;
-  background-color: var(--common-blue1);
+  background-color: white;
   padding: var(--p-unit) var(--p-l);
   border-radius: var(--common-border-raidus-s);
 }
 .layout:hover {
+  background-color: var(--common-black1-hover);
+}
+.primary {
+  color: var(--common-font-white);
+  background-color: var(--common-blue1);
+}
+.primary:hover {
   background-color: var(--common-blue1-hover);
 }

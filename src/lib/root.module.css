@@ -2,7 +2,8 @@
 :root {
   --common-black1: rgba(23, 26, 29, 1);
   --common-black2: rgba(23, 26, 29, 0.6);
-  --common-black3: rgba(23, 26, 29, 0.24);
+  --common-black3: rgba(23, 26, 29, 0.4);
+  --common-black4: rgba(23, 26, 29, 0.24);
   --common-blue1: rgba(0, 137, 255, 1);
   --common-blue2: rgba(0, 137, 255, 0.48);
   --common-blue3: rgba(0, 137, 255, 0.12);
@@ -24,8 +25,12 @@
 /*hover*/
 :root {
   --common-blue1-hover: #007eea;
+  --common-black1-hover: #ebebeb;
 }
-
+/*border*/
+:root {
+  --common-border: 1px solid var(--common-black4);
+}
 /* border raidus*/
 :root {
   --common-border-raidus-s: 4px;
