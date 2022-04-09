@@ -1,4 +1,17 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import Aside from "@/components/Aside.vue";
+import Layout from "../components/Layout.vue";
+</script>
 <template>
-  <h1>Comp</h1>
+  <main>
+    <Aside />
+    <Layout />
+  </main>
 </template>
+
+<style scoped>
+main {
+  display: flex;
+  min-height: 100vh;
+}
+</style>

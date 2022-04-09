@@ -14,6 +14,13 @@ const router = createRouter({
       path: "/comp",
       name: "comp",
       component: Comp,
+      children: [
+        {
+          path: "/comp/button",
+          name: "button",
+          component: () => import("@/demo/ButtonDemo.vue"),
+        },
+      ],
     },
   ],
 });
