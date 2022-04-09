@@ -1,23 +1,39 @@
-import { defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
 import { HButton } from "@/lib";
 import s from "./style/modal.module.css";
 
 const Modal = defineComponent({
   name: "Modal",
-  setup() {
+  props: {
+    visible: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  setup(props, { slots }) {
+    const classesRef = computed(() => {
+      return [s.display, props.visible ? s.visible : ""];
+    });
     return () => (
       <>
-        <div class={s.display}>
+        <div class={classesRef.value}>
           <div class={s.overlay}></div>
           <div class={s.wrapper}>
             <div class={s.modal}>
-              <header></header>
-              <main>
-                <slot name="content" />
-              </main>
+              <header>
+                <div class={s.title}>{slots.title?.()}</div>
+                <i class={s.close}>x</i>
+              </header>
+              <main>{slots.content?.()}</main>
               <footer>
-                <HButton>Cancel</HButton>
-                <HButton>confirm</HButton>
+                {slots.footer ? (
+                  slots.footer?.()
+                ) : (
+                  <div class={s["button-wrapper"]}>
+                    <HButton>取消</HButton>
+                    <HButton type="primary">确定</HButton>
+                  </div>
+                )}
               </footer>
             </div>
           </div>

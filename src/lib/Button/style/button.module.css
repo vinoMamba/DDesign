@@ -8,6 +8,8 @@
   background-color: white;
   padding: var(--p-unit) var(--p-l);
   border-radius: var(--common-border-raidus-s);
+  cursor: pointer;
+  user-select: none;
 }
 .layout:hover {
   background-color: var(--common-black1-hover);

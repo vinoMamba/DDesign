@@ -20,6 +20,11 @@ const router = createRouter({
           name: "button",
           component: () => import("@/demo/ButtonDemo.vue"),
         },
+        {
+          path: "/comp/modal",
+          name: "modal",
+          component: () => import("@/demo/ModalDemo.vue"),
+        },
       ],
     },
   ],

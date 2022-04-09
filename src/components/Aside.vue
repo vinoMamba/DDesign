@@ -7,7 +7,10 @@ interface Nav {
   path: string;
 }
 const router = useRouter();
-const navList = ref<Nav[]>([{ title: "Button", path: "/comp/button" }]);
+const navList = ref<Nav[]>([
+  { title: "Button", path: "/comp/button" },
+  { title: "Modal", path: "/comp/modal" },
+]);
 const jump = (path: string) => {
   router.push(path);
 };

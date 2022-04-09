@@ -31,6 +31,7 @@
 /*border*/
 :root {
   --common-border: 1px solid var(--common-black4);
+  --common-border-gray: 1px solid #f0f0f0;
 }
 /* border raidus*/
 :root {
