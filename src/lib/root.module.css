@@ -13,7 +13,7 @@
   --common-orange: rgba(255, 146, 0, 1);
   --common-orange2: rgba(255, 146, 0, 0.48);
   --common-orange3: rgba(255, 146, 0, 0.12);
-  --common-red: rgba(255, 82, 25, 1);
+  --common-red1: rgba(255, 82, 25, 1);
   --common-red2: rgba(255, 82, 25, 0.48);
   --common-red3: rgba(255, 82, 25, 0.12);
   --common-font-color1: rgba(23, 26, 29, 1);
@@ -26,6 +26,7 @@
 :root {
   --common-blue1-hover: #007eea;
   --common-black1-hover: #ebebeb;
+  --common-red1-hover: #e84611;
 }
 /*border*/
 :root {

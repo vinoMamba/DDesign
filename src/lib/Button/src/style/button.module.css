@@ -13,9 +13,19 @@
   background-color: var(--common-black1-hover);
 }
 .primary {
+  border: none;
   color: var(--common-font-white);
   background-color: var(--common-blue1);
 }
 .primary:hover {
   background-color: var(--common-blue1-hover);
+}
+
+.danger {
+  border: none;
+  color: var(--common-font-white);
+  background-color: var(--common-red1);
+}
+.danger:hover {
+  background-color: var(--common-red1-hover);
 }
