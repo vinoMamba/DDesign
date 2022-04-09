@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { HButton } from "@/lib/Button";
+import { HButton } from "@/lib";
 import { useRouter } from "vue-router";
 
 const router = useRouter();

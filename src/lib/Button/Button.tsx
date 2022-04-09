@@ -1,7 +1,7 @@
 import { computed, defineComponent, type PropType } from "vue";
 import s from "./style/button.module.css";
 
-export const Button = defineComponent({
+const Button = defineComponent({
   props: {
     type: {
       type: String as PropType<"primary" | "default" | "danger">,
@@ -19,3 +19,4 @@ export const Button = defineComponent({
     );
   },
 });
+export default Button;
