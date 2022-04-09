@@ -9,6 +9,14 @@ const Modal = defineComponent({
       type: Boolean,
       default: false,
     },
+    okText: {
+      type: String,
+      default: "确定",
+    },
+    cancelText: {
+      type: String,
+      default: "取消",
+    },
   },
   emits: ["update:visible", "ok"],
   setup(props, { slots, emit }) {
@@ -43,9 +51,11 @@ const Modal = defineComponent({
                   slots.footer?.()
                 ) : (
                   <div class={s["button-wrapper"]}>
-                    <HButton onClick={() => cancel()}>取消</HButton>
+                    <HButton onClick={() => cancel()}>
+                      {props.cancelText}
+                    </HButton>
                     <HButton type="primary" onClick={(e: MouseEvent) => ok(e)}>
-                      确定
+                      {props.okText}
                     </HButton>
                   </div>
                 )}

@@ -21,3 +21,24 @@ test("Modal", () => {
   expect(wrapper.emitted()).toHaveProperty("update:visible");
   expect(wrapper.emitted()).toHaveProperty("ok");
 });
+
+test("Modal can modify the buttons name", () => {
+  const wrapper = mount(HModal, {
+    propsData: {
+      okText: "ok",
+      cancelText: "cancel",
+    },
+  });
+  expect(wrapper.findAll("button")[1].text()).toContain("ok");
+  expect(wrapper.findAll("button")[0].text()).toContain("cancel");
+});
+
+test("when use footer slot, the button will be replaced", () => {
+  const wrapper = mount(HModal, {
+    slots: {
+      footer: "<button>footer</button>",
+    },
+  });
+  expect(wrapper.findAll("button").length).toBe(1);
+  expect(wrapper.find("button").text()).toContain("footer");
+});
