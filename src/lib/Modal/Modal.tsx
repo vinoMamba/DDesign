@@ -10,10 +10,20 @@ const Modal = defineComponent({
       default: false,
     },
   },
-  setup(props, { slots }) {
+  emits: ["update:visible"],
+  setup(props, { slots, emit }) {
     const classesRef = computed(() => {
       return [s.display, props.visible ? s.visible : ""];
     });
+    function close() {
+      emit("update:visible", false);
+    }
+    function ok() {
+      emit("update:visible", false);
+    }
+    function cancel() {
+      emit("update:visible", false);
+    }
     return () => (
       <>
         <div class={classesRef.value}>
@@ -22,7 +32,9 @@ const Modal = defineComponent({
             <div class={s.modal}>
               <header>
                 <div class={s.title}>{slots.title?.()}</div>
-                <i class={s.close}>x</i>
+                <i class={s.close} onClick={() => close()}>
+                  x
+                </i>
               </header>
               <main>{slots.content?.()}</main>
               <footer>
@@ -30,8 +42,10 @@ const Modal = defineComponent({
                   slots.footer?.()
                 ) : (
                   <div class={s["button-wrapper"]}>
-                    <HButton>取消</HButton>
-                    <HButton type="primary">确定</HButton>
+                    <HButton onClick={() => cancel()}>取消</HButton>
+                    <HButton type="primary" onClick={() => ok()}>
+                      确定
+                    </HButton>
                   </div>
                 )}
               </footer>

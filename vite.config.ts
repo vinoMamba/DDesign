@@ -15,8 +15,8 @@ export default defineConfig({
     vue(),
     vueJsx({
       // https://vitejs.dev/jsx/
-      mergeProps: true,
-      transformOn: true,
+      // mergeProps: true,
+      // transformOn: true,
     }),
   ],
   resolve: {

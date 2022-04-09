@@ -1,9 +1,12 @@
 <script lang="ts" setup>
 import { HButton } from "@/lib";
+const click = () => {
+  console.log("click");
+};
 </script>
 <template>
   <div>
-    <HButton type="primary">primary</HButton>
+    <HButton type="primary" @click="click">primary</HButton>
     <HButton>default</HButton>
     <HButton type="danger">danger</HButton>
   </div>

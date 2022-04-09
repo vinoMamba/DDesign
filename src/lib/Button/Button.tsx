@@ -8,12 +8,13 @@ const Button = defineComponent({
       default: "default",
     },
   },
-  setup(props, { slots }) {
+  emits: ["click"],
+  setup(props, { slots, emit }) {
     const classes = computed(() => {
       return [s.layout, s[props.type]];
     });
     return () => (
-      <button class={classes.value}>
+      <button class={classes.value} onClick={() => emit("click")}>
         <span>{slots.default?.()}</span>
       </button>
     );
