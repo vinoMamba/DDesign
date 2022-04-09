@@ -6,10 +6,13 @@ const toggle = () => {
   console.log("toggle");
   visible.value = !visible.value;
 };
+const handleOk = (e: MouseEvent) => {
+  console.log(e);
+};
 </script>
 <template>
   <HButton @click="toggle">open</HButton>
-  <HModal v-model:visible="visible">
+  <HModal v-model:visible="visible" @ok="handleOk">
     <template #title>
       <h1>title</h1>
     </template>

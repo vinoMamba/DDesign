@@ -15,6 +15,9 @@ test("Modal", () => {
   expect(wrapper.find("header").text()).toContain("title");
   wrapper.find("i").trigger("click");
   expect(wrapper.emitted()).toHaveProperty("update:visible");
-  wrapper.find("button").trigger("click");
+  wrapper.findAll("button")[0].trigger("click");
   expect(wrapper.emitted()).toHaveProperty("update:visible");
+  wrapper.findAll("button")[1].trigger("click");
+  expect(wrapper.emitted()).toHaveProperty("update:visible");
+  expect(wrapper.emitted()).toHaveProperty("ok");
 });

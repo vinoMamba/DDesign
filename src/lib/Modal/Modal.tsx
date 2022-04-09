@@ -10,7 +10,7 @@ const Modal = defineComponent({
       default: false,
     },
   },
-  emits: ["update:visible"],
+  emits: ["update:visible", "ok"],
   setup(props, { slots, emit }) {
     const classesRef = computed(() => {
       return [s.display, props.visible ? s.visible : ""];
@@ -18,7 +18,8 @@ const Modal = defineComponent({
     function close() {
       emit("update:visible", false);
     }
-    function ok() {
+    function ok(e: MouseEvent) {
+      emit("ok", e);
       emit("update:visible", false);
     }
     function cancel() {
@@ -43,7 +44,7 @@ const Modal = defineComponent({
                 ) : (
                   <div class={s["button-wrapper"]}>
                     <HButton onClick={() => cancel()}>取消</HButton>
-                    <HButton type="primary" onClick={() => ok()}>
+                    <HButton type="primary" onClick={(e: MouseEvent) => ok(e)}>
                       确定
                     </HButton>
                   </div>

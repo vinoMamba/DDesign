@@ -14,7 +14,10 @@ const Button = defineComponent({
       return [s.layout, s[props.type]];
     });
     return () => (
-      <button class={classes.value} onClick={() => emit("click")}>
+      <button
+        class={classes.value}
+        onClick={(e: MouseEvent) => emit("click", e)}
+      >
         <span>{slots.default?.()}</span>
       </button>
     );
