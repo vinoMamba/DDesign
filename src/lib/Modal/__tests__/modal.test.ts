@@ -42,3 +42,12 @@ test("when use footer slot, the button will be replaced", () => {
   expect(wrapper.findAll("button").length).toBe(1);
   expect(wrapper.find("button").text()).toContain("footer");
 });
+
+test("toggle close button", () => {
+  const wrapper = mount(HModal, {
+    propsData: {
+      closable: false,
+    },
+  });
+  expect(wrapper.findAll("i").length).toBe(0);
+});

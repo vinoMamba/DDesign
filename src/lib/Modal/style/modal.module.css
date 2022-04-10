@@ -16,11 +16,15 @@
 }
 .wrapper {
   position: fixed;
-  top: 50%;
+  top: 100px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%);
   z-index: 11;
   transition: all 1s ease;
+}
+.centered {
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 .modal {
   background-color: white;

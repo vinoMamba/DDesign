@@ -9,6 +9,14 @@ const Modal = defineComponent({
       type: Boolean,
       default: false,
     },
+    centered: {
+      type: Boolean,
+      default: false,
+    },
+    closable: {
+      type: Boolean,
+      default: true,
+    },
     okText: {
       type: String,
       default: "确定",
@@ -23,6 +31,10 @@ const Modal = defineComponent({
     const classesRef = computed(() => {
       return [s.display, props.visible ? s.visible : ""];
     });
+    const wrapperCalssesRef = computed(() => {
+      return [s.wrapper, props.centered ? s.centered : ""];
+    });
+
     function close() {
       emit("update:visible", false);
     }
@@ -37,13 +49,15 @@ const Modal = defineComponent({
       <>
         <div class={classesRef.value}>
           <div class={s.overlay}></div>
-          <div class={s.wrapper}>
+          <div class={wrapperCalssesRef.value}>
             <div class={s.modal}>
               <header>
                 <div class={s.title}>{slots.title?.()}</div>
-                <i class={s.close} onClick={() => close()}>
-                  x
-                </i>
+                {props.closable && (
+                  <i class={s.close} onClick={() => close()}>
+                    x
+                  </i>
+                )}
               </header>
               <main>{slots.content?.()}</main>
               <footer>
