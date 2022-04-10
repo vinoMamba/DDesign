@@ -51,3 +51,12 @@ test("toggle close button", () => {
   });
   expect(wrapper.findAll("i").length).toBe(0);
 });
+
+test("can hidden the header", () => {
+  const wrapper = mount(HModal, {
+    propsData: {
+      hideHeader: true,
+    },
+  });
+  expect(wrapper.find("header").exists()).toBe(false);
+});

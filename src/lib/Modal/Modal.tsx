@@ -9,6 +9,10 @@ const Modal = defineComponent({
       type: Boolean,
       default: false,
     },
+    hideHeader: {
+      type: Boolean,
+      default: false,
+    },
     centered: {
       type: Boolean,
       default: false,
@@ -51,14 +55,16 @@ const Modal = defineComponent({
           <div class={s.overlay}></div>
           <div class={wrapperCalssesRef.value}>
             <div class={s.modal}>
-              <header>
-                <div class={s.title}>{slots.title?.()}</div>
-                {props.closable && (
-                  <i class={s.close} onClick={() => close()}>
-                    x
-                  </i>
-                )}
-              </header>
+              {!props.hideHeader && (
+                <header>
+                  <div class={s.title}>{slots.title?.()}</div>
+                  {props.closable && (
+                    <i class={s.close} onClick={() => close()}>
+                      x
+                    </i>
+                  )}
+                </header>
+              )}
               <main>{slots.content?.()}</main>
               <footer>
                 {slots.footer ? (

@@ -12,20 +12,25 @@ const handleOk = (e: MouseEvent) => {
 </script>
 <template>
   <HButton @click="toggle">open</HButton>
-  <HModal v-model:visible="visible" @ok="handleOk" centered>
-    <template #title>
-      <h1>title</h1>
-    </template>
+  <HModal v-model:visible="visible" @ok="handleOk">
     <template #content>
-      <p>content</p>
-      <p>content</p>
-      <p>content</p>
-      <p>content</p>
+      <div class="wrapper">
+        <div>1</div>
+        <div>2</div>
+      </div>
     </template>
   </HModal>
 </template>
 <style scoped>
 h1 {
   color: black;
+}
+.wrapper {
+  min-width: 45vw;
+  display: flex;
+}
+.wrapper > div {
+  width: 100%;
+  min-height: 50vh;
 }
 </style>
