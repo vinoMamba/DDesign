@@ -9,6 +9,7 @@ const click = () => {
     <HButton type="primary" @click="click">primary</HButton>
     <HButton>default</HButton>
     <HButton type="danger">danger</HButton>
+    <HButton type="danger" disabled>danger</HButton>
   </div>
 </template>
 <style scoped>
