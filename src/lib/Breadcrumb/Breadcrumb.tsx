@@ -6,7 +6,7 @@ const Breadcrumb = defineComponent({
     props: {
         separator: {
             type: String as PropType<String>,
-            default: "/"
+            default: ">"
         },
     },
     setup(props, {slots}) {
