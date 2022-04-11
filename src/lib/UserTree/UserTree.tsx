@@ -1,7 +1,8 @@
-import {defineComponent, ref} from "vue";
+import {defineComponent} from "vue";
 import {HButton, HModal} from "@/lib";
 import {UserTreeContent} from "./UserTreeContent";
 import {UserTreeTitle} from "./UserTreeTitle";
+import s from "./style/userTree.module.css"
 
 const UserTree = defineComponent({
     name: "UserTree",
@@ -12,8 +13,7 @@ const UserTree = defineComponent({
         },
     },
     emits: ['update:visible'],
-    setup(props, {slots, emit}) {
-        const visible = ref(false);
+    setup(props, {emit}) {
         const handleClose = () => {
             emit('update:visible', false)
         };
@@ -23,8 +23,8 @@ const UserTree = defineComponent({
                     {{
                         title: () => (<UserTreeTitle/>),
                         content: () => (<UserTreeContent/>),
-                        footer: () => <div>
-                            <HButton onClick={() => handleClose()}>确认</HButton>
+                        footer: () => <div class={s.footer}>
+                            <HButton type="primary" onClick={() => handleClose()}>确认</HButton>
                             <HButton onClick={() => handleClose()}>取消</HButton>
                         </div>
                     }}
