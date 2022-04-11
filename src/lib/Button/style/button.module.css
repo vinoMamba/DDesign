@@ -14,6 +14,9 @@
 .layout:hover {
   background-color: var(--common-black1-hover);
 }
+.disabled {
+  cursor: not-allowed;
+}
 .primary {
   border: none;
   color: var(--common-font-white);
