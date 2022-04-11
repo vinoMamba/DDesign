@@ -12,6 +12,7 @@ const navList = ref<Nav[]>([
   {title: "Button", path: "/comp/button"},
   {title: "Modal", path: "/comp/modal"},
   {title: "Breadcrumb", path: "/comp/breadcrumb"},
+  {title: "Input", path: "/comp/input"},
   {title: "UserTree", path: "/comp/userTree"},
 ]);
 const jump = (path: string) => {

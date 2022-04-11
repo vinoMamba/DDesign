@@ -1,0 +1,10 @@
+input {
+    padding: var(--p-unit) calc(var(--p-m) - 1px);
+    border: var(--common-border);
+    border-radius: var(--common-border-raidus-s);
+    outline: none;
+}
+
+input:hover, input:focus {
+    border: var(--common-border-blue1-hover);
+}

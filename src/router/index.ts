@@ -35,6 +35,11 @@ const router = createRouter({
                     name: "userTree",
                     component: () => import("@/demo/UserTreeDemo.vue"),
                 },
+                {
+                    path: "/comp/input",
+                    name: "input",
+                    component: () => import("@/demo/InputDemo.vue"),
+                },
             ],
         },
     ],
