@@ -1,6 +1,6 @@
 import {defineComponent, ref} from "vue";
-import {HModal} from "@/lib";
-import {UserTreeTitle} from "./components/UserTreeTitle";
+import {HButton, HModal} from "@/lib";
+import {UserTreeTitle, UserTreeContent} from "./components";
 
 const UserTree = defineComponent({
     name: "UserTree",
@@ -10,19 +10,22 @@ const UserTree = defineComponent({
             default: false
         },
     },
-    setup(props, {slots}) {
+    emits: ['update:visible'],
+    setup(props, {slots, emit}) {
         const visible = ref(false);
+        const handleClose = () => {
+            emit('update:visible', false)
+        };
         return () => (
             <>
                 <HModal v-model:visible={props.visible} closable={false}>
                     {{
                         title: () => (<UserTreeTitle/>),
-                        content: () => (
-                            <div>
-                                <div>1</div>
-                                <div>2</div>
-                            </div>
-                        ),
+                        content: () => (<UserTreeContent/>),
+                        footer: () => <div>
+                            <HButton onClick={() => handleClose()}>确认</HButton>
+                            <HButton onClick={() => handleClose()}>取消</HButton>
+                        </div>
                     }}
                 </HModal>
             </>
