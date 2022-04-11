@@ -1,20 +1,33 @@
-import { defineComponent, ref } from "vue";
-import { HButton, HModal } from "..";
+import {defineComponent, ref} from "vue";
+import {HModal} from "@/lib";
+import {UserTreeTitle} from "./components/UserTreeTitle";
 
-export const UserTree = defineComponent({
-  name: "UserTree",
-  setup(props, { slots }) {
-    const visible = ref(false);
-    return () => (
-      <>
-        <HButton>打开</HButton>
-        <HModal v-modal:visible={visible.value}>
-          {{
-            title: () => <h1>选择人员</h1>,
-            content: () => <div>list</div>,
-          }}
-        </HModal>
-      </>
-    );
-  },
+const UserTree = defineComponent({
+    name: "UserTree",
+    props: {
+        visible: {
+            type: Boolean,
+            default: false
+        },
+    },
+    setup(props, {slots}) {
+        const visible = ref(false);
+        return () => (
+            <>
+                <HModal v-model:visible={props.visible} closable={false}>
+                    {{
+                        title: () => (<UserTreeTitle/>),
+                        content: () => (
+                            <div>
+                                <div>1</div>
+                                <div>2</div>
+                            </div>
+                        ),
+                    }}
+                </HModal>
+            </>
+        );
+    },
 });
+
+export default UserTree;

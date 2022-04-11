@@ -1,0 +1,15 @@
+<script lang="ts" setup>
+import {HUserTree, HButton} from "@/lib";
+import {ref} from "vue";
+
+const visible = ref(false)
+const toggle = () => {
+  visible.value = !visible.value
+}
+</script>
+<template>
+  <div>
+    <HButton @click="toggle">open</HButton>
+    <HUserTree v-model:visible="visible"/>
+  </div>
+</template>

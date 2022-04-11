@@ -35,7 +35,7 @@ const Modal = defineComponent({
     const classesRef = computed(() => {
       return [s.display, props.visible ? s.visible : ""];
     });
-    const wrapperCalssesRef = computed(() => {
+    const wrapperClassesRef = computed(() => {
       return [s.wrapper, props.centered ? s.centered : ""];
     });
 
@@ -52,8 +52,8 @@ const Modal = defineComponent({
     return () => (
       <>
         <div class={classesRef.value}>
-          <div class={s.overlay}></div>
-          <div class={wrapperCalssesRef.value}>
+          <div class={s.overlay}/>
+          <div class={wrapperClassesRef.value}>
             <div class={s.modal}>
               {!props.hideHeader && (
                 <header>
