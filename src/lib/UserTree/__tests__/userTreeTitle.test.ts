@@ -1,6 +1,6 @@
 import {expect, test} from "vitest";
 import {mount} from "@vue/test-utils";
-import {Index} from "../components/TreeTitle";
+import {Index} from "../UserTreeTitle";
 
 test("the title prop have default value", () => {
     const wrapper = mount(Index, {});

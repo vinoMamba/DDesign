@@ -1,6 +1,7 @@
 import {defineComponent, ref} from "vue";
 import {HButton, HModal} from "@/lib";
-import {UserTreeTitle, UserTreeContent} from "./components";
+import {UserTreeContent} from "./UserTreeContent";
+import {UserTreeTitle} from "./UserTreeTitle";
 
 const UserTree = defineComponent({
     name: "UserTree",
