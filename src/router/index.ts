@@ -25,6 +25,11 @@ const router = createRouter({
           name: "modal",
           component: () => import("@/demo/ModalDemo.vue"),
         },
+        {
+          path: "/comp/breadcrumb",
+          name: "breadcrumb",
+          component: () => import("@/demo/BreadcrumbDemo.vue"),
+        },
       ],
     },
   ],

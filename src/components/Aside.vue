@@ -10,6 +10,7 @@ const router = useRouter();
 const navList = ref<Nav[]>([
   { title: "Button", path: "/comp/button" },
   { title: "Modal", path: "/comp/modal" },
+  { title: "Breadcrumb", path: "/comp/breadcrumb" },
 ]);
 const jump = (path: string) => {
   router.push(path);
