@@ -46,6 +46,12 @@ export const UserTreeNodeList = defineComponent({
                 }
             }
 
+            const checked = ref(true)
+
+            function toggleChecked(e: Event, node: TreeNode) {
+            }
+
+
             onMounted(() => {
                 updateNodeList(props.list, {mode: UserTree.mode()});
             });
@@ -68,7 +74,8 @@ export const UserTreeNodeList = defineComponent({
                         ) : (
                             nodeList.value.map((node) => (
                                 <li key={node.id}>
-                                    <input type="checkbox" class={s.checkbox}/>
+                                    <input type="checkbox" class={s.checkbox} checked={checked.value}
+                                           onChange={(e: Event) => toggleChecked(e, node)}/>
                                     <p class={s.node} onClick={() => getNext(node)}>
                                         <img src={node.avatar} alt=''/>
                                         <span class={s.name}>{node.name}</span>
