@@ -1,0 +1,17 @@
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.breadcrumb > li {
+    max-width: 5rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.list {
+}
+
+.list > li.empty {
+}

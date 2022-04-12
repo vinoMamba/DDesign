@@ -2,7 +2,7 @@
 import {HUserTree, HButton} from "@/lib";
 import {ref} from "vue";
 
-const visible = ref(false)
+const visible = ref(true)
 const toggle = () => {
   visible.value = !visible.value
 }

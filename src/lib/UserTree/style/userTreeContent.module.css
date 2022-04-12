@@ -13,10 +13,10 @@
     margin: 8px;
     width: 100%;
     border-radius: var(--common-border-raidus-m);
+    overflow: auto;
 }
 
 .left {
-
 }
 
 .right {
