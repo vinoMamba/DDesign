@@ -21,7 +21,25 @@ export const mockTree: TreeNode[] = [
                         type: 0,
                         peopleCount: 0,
                         avatar: 'xx',
-                        children: [],
+                        children: [
+                            {
+                                id: "443",
+                                name: "王笑笑",
+                                type: 1,
+                                peopleCount: 0,
+                                avatar: 'xx',
+                                children: []
+                            },
+                            {
+                                id: "444",
+                                name: "王哭哭",
+                                type: 1,
+                                peopleCount: 0,
+                                avatar: 'xx',
+                                children: []
+                            }
+
+                        ],
                     },
                     {
                         id: "4",
@@ -57,6 +75,22 @@ export const mockTree: TreeNode[] = [
                         children: [],
                     },
                 ],
+            },
+            {
+                id: "233",
+                name: "王鑫",
+                type: 1,
+                peopleCount: 0,
+                avatar: 'xx',
+                children: []
+            },
+            {
+                id: "234",
+                name: "宋江",
+                type: 1,
+                peopleCount: 0,
+                avatar: 'xx',
+                children: []
             },
         ],
     },

@@ -10,6 +10,6 @@ const toggle = () => {
 <template>
   <div>
     <HButton @click="toggle">open</HButton>
-    <HUserTree v-model:visible="visible"/>
+    <HUserTree v-model:visible="visible" mode="andUser" show-user-count/>
   </div>
 </template>
