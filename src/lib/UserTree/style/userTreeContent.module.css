@@ -7,6 +7,7 @@
 }
 
 .layout > div {
+    padding: var(--p-m);
     min-height: 40vh;
     background: #f4f6f8;
     border: 1px solid #dedede;
@@ -16,7 +17,12 @@
     overflow: auto;
 }
 
-.left {
+div.left {
+}
+
+div.left > input {
+    width: 100%;
+    margin-bottom: .4rem;
 }
 
 .right {

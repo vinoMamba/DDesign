@@ -4,10 +4,34 @@
 }
 
 .breadcrumb > li {
-    max-width: 5rem;
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb .title {
+    color: var(--common-blue1);
+    padding: var(--p-unit);
+    border-radius: var(--common-border-raidus-s);
+    max-width: 6rem;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+.breadcrumb > li:last-child .title {
+    color: var(--common-black1)
+}
+
+.breadcrumb > li:last-child .title:hover {
+    background: transparent;
+}
+
+.breadcrumb .title:hover {
+    background: var(--common-gray5);
+}
+
+.breadcrumb .separator {
+    margin: 0 0.5rem;
 }
 
 .list {

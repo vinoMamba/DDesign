@@ -32,9 +32,15 @@ export const UserTreeNodeList = defineComponent({
             return () => (
                 <>
                     <ol class={s.breadcrumb}>
-                        <li onClick={() => reset()}>通讯录&gt;</li>
-                        {breadcrumbList.value.map((node) => (
-                            <li title={node.name} key={node.id} onClick={() => getPrev(node)}>{node.name}</li>))}
+                        <li onClick={() => reset()}>
+                            <span class={s.title}>通讯录</span>
+                            <span class={s.separator}>&gt;</span>
+                        </li>
+                        {breadcrumbList.value.map((node, index) => (
+                            <li title={node.name} key={node.id} onClick={() => getPrev(node)}>
+                                <span class={s.title}>{node.name}</span>
+                                {index < breadcrumbList.value.length - 1 && <span class={s.separator}>&gt;</span>}
+                            </li>))}
                     </ol>
                     <ul class={s.list}>
                         {nodeList.value.length === 0 ? (

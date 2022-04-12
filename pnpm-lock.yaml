@@ -13,13 +13,13 @@ specifiers:
   vite: ^2.9.1
   vitest: ^0.8.1
   vue: ^3.2.31
-  vue-router: ^4.0.14
+  vue-router: ^4.0.13
   vue-tsc: ^0.33.9
 
 dependencies:
   pinia: 2.0.13_typescript@4.6.3+vue@3.2.31
   vue: 3.2.31
-  vue-router: 4.0.14_vue@3.2.31
+  vue-router: 4.0.13_vue@3.2.31
 
 devDependencies:
   '@types/jsdom': 16.2.14
@@ -1624,8 +1624,8 @@ packages:
       vue: 3.2.31
     dev: false
 
-  /vue-router/4.0.14_vue@3.2.31:
-    resolution: {integrity: sha512-wAO6zF9zxA3u+7AkMPqw9LjoUCjSxfFvINQj3E/DceTt6uEz1XZLraDhdg2EYmvVwTBSGlLYsUw8bDmx0754Mw==}
+  /vue-router/4.0.13_vue@3.2.31:
+    resolution: {integrity: sha512-LmXrC+BkDRLak+d5xTMgUYraT3Nj0H/vCbP+7usGvIl9Viqd1UP6AsP0i69pSbn9O0dXK/xCdp4yPw21HqV9Jw==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:

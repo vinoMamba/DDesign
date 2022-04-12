@@ -4,6 +4,11 @@
     --common-black2: rgba(23, 26, 29, 0.6);
     --common-black3: rgba(23, 26, 29, 0.4);
     --common-black4: rgba(23, 26, 29, 0.24);
+    --common-gray1: rgba(126, 134, 142, 1);
+    --common-gray2: rgba(126, 134, 142, .6);
+    --common-gray3: rgba(126, 134, 142, .4);
+    --common-gray4: rgba(126, 134, 142, .24);
+    --common-gray5: rgba(126, 134, 142, .12);
     --common-blue1: rgba(0, 137, 255, 1);
     --common-blue2: rgba(0, 137, 255, 0.48);
     --common-blue3: rgba(0, 137, 255, 0.12);
