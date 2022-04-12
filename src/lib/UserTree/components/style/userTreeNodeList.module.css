@@ -37,5 +37,48 @@
 .list {
 }
 
+.list > li {
+    cursor: pointer;
+    padding: var(--p-unit);
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.list > li:hover {
+    background: var(--common-gray5);
+}
+
+.list > li .checkbox {
+    margin-right: .4rem;
+}
+
+.list > li .node {
+    flex-grow: 1;
+    margin-right: auto;
+    display: flex;
+    align-content: center;
+}
+
+.list > li .node .name {
+}
+
+.list > li .node .count {
+}
+
+.list > li .next {
+    padding: 0 var(--p-unit);
+    color: var(--common-blue1);
+}
+
 .list > li.empty {
+    padding: var(--p-xxl);
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.list > li.empty:hover {
+    background: transparent;
 }

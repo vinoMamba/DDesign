@@ -47,7 +47,15 @@ export const UserTreeNodeList = defineComponent({
                             <li class={s.empty}>暂无数据</li>
                         ) : (
                             nodeList.value.map((node) => (
-                                <li key={node.id} onClick={() => getNext(node)}>{node.name}</li>
+                                <li key={node.id}>
+                                    <input type="checkbox" class={s.checkbox}/>
+                                    <p class={s.node} onClick={() => getNext(node)}>
+                                        <img src={node.avatar} alt=''/>
+                                        <span class={s.name}>{node.name}</span>
+                                        <span class={s.count}>（{node.peopleCount}）</span>
+                                    </p>
+                                    <span class={s.next} onClick={() => getNext(node)}>下级</span>
+                                </li>
                             ))
                         )}
                     </ul>
