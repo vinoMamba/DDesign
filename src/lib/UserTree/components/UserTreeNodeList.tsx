@@ -2,6 +2,7 @@ import {computed, defineComponent, inject, onMounted, type PropType, ref} from "
 import type {TreeNode} from "../type";
 import s from "./style/userTreeNodeList.module.css"
 import {type UserTreeInjection, userTreeInjection} from "@/lib/UserTree/UserTree";
+import {getCheckedNodes, traverseTree} from "@/lib/UserTree/utils";
 
 
 export const UserTreeNodeList = defineComponent({
@@ -12,7 +13,8 @@ export const UserTreeNodeList = defineComponent({
                 default: () => [],
             },
         },
-        setup(props) {
+        emits: ["update:checkedNodes"],
+        setup(props, {emit}) {
             const UserTree = inject(userTreeInjection, {
                 mode: () => 'department',
                 multiple: () => true,
@@ -46,17 +48,33 @@ export const UserTreeNodeList = defineComponent({
                 }
             }
 
-            const checked = ref(true)
 
             function toggleChecked(e: Event, node: TreeNode) {
+                node.checked = !node.checked;
+                // change children checked state
+                traverseTree(node, (n: TreeNode) => {
+                    n.checked = node.checked;
+                })
+                // change parent checked state
+                const lastNode = breadcrumbList.value[breadcrumbList.value.length - 1];
+                if (lastNode && lastNode.children.every(n => n.checked)) {
+                    lastNode.checked = true;
+                } else if (lastNode && !lastNode.children.some(n => n.checked)) {
+                    lastNode.checked = false;
+                }
+                updateCheckedNodes()
             }
 
+            function updateCheckedNodes() {
+                const checkedNodes = getCheckedNodes(nodeList.value)
+                emit('update:checkedNodes', checkedNodes)
+            }
 
             onMounted(() => {
                 updateNodeList(props.list, {mode: UserTree.mode()});
             });
             return () => (
-                <>
+                <div>
                     <ol class={s.breadcrumb}>
                         <li onClick={() => reset()}>
                             <span class={s.title}>通讯录</span>
@@ -74,7 +92,7 @@ export const UserTreeNodeList = defineComponent({
                         ) : (
                             nodeList.value.map((node) => (
                                 <li key={node.id}>
-                                    <input type="checkbox" class={s.checkbox} checked={checked.value}
+                                    <input type="checkbox" class={s.checkbox} checked={node.checked}
                                            onChange={(e: Event) => toggleChecked(e, node)}/>
                                     <p class={s.node} onClick={() => getNext(node)}>
                                         <img src={node.avatar} alt=''/>
@@ -87,7 +105,7 @@ export const UserTreeNodeList = defineComponent({
                             ))
                         )}
                     </ul>
-                </>
+                </div>
             );
         },
     })

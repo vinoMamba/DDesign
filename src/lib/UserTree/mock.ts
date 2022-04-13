@@ -7,6 +7,7 @@ export const mockTree: TreeNode[] = [
         type: 0,
         peopleCount: 0,
         avatar: 'xx',
+        checked: false,
         children: [
             {
                 id: "2",
@@ -14,6 +15,7 @@ export const mockTree: TreeNode[] = [
                 type: 0,
                 peopleCount: 0,
                 avatar: 'xx',
+                checked: false,
                 children: [
                     {
                         id: "3",
@@ -21,6 +23,7 @@ export const mockTree: TreeNode[] = [
                         type: 0,
                         peopleCount: 0,
                         avatar: 'xx',
+                        checked: false,
                         children: [
                             {
                                 id: "443",
@@ -28,7 +31,8 @@ export const mockTree: TreeNode[] = [
                                 type: 1,
                                 peopleCount: 0,
                                 avatar: 'xx',
-                                children: []
+                                children: [],
+                                checked: false
                             },
                             {
                                 id: "444",
@@ -36,6 +40,7 @@ export const mockTree: TreeNode[] = [
                                 type: 1,
                                 peopleCount: 0,
                                 avatar: 'xx',
+                                checked: false,
                                 children: []
                             }
 
@@ -47,6 +52,7 @@ export const mockTree: TreeNode[] = [
                         type: 0,
                         peopleCount: 0,
                         avatar: 'xx',
+                        checked: false,
                         children: [],
                     },
                 ],
@@ -57,6 +63,7 @@ export const mockTree: TreeNode[] = [
                 type: 0,
                 peopleCount: 0,
                 avatar: 'xx',
+                checked: false,
                 children: [
                     {
                         id: "33",
@@ -64,6 +71,7 @@ export const mockTree: TreeNode[] = [
                         type: 0,
                         peopleCount: 0,
                         avatar: 'xx',
+                        checked: false,
                         children: [],
                     },
                     {
@@ -72,6 +80,7 @@ export const mockTree: TreeNode[] = [
                         type: 0,
                         peopleCount: 0,
                         avatar: 'xx',
+                        checked: false,
                         children: [],
                     },
                 ],
@@ -82,6 +91,7 @@ export const mockTree: TreeNode[] = [
                 type: 1,
                 peopleCount: 0,
                 avatar: 'xx',
+                checked: false,
                 children: []
             },
             {
@@ -90,6 +100,7 @@ export const mockTree: TreeNode[] = [
                 type: 1,
                 peopleCount: 0,
                 avatar: 'xx',
+                checked: false,
                 children: []
             },
         ],
