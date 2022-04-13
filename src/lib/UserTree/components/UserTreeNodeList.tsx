@@ -18,6 +18,7 @@ import {
   traverseNodeList,
   traverseTree,
 } from "@/lib/UserTree/utils";
+import { listenerCount } from "process";
 
 // 由于vue3 里面的watch 是懒监听，必须加一个symbol值保证唯一
 export interface UniqueTreeNode extends TreeNode {
@@ -41,10 +42,12 @@ export const UserTreeNodeList = defineComponent({
       mode: () => "department",
       multiple: () => true,
       showUserCount: () => true,
+      showAllCheckedButton: () => true,
     } as UserTreeInjection);
     const userCountVisible = computed(() => {
       return UserTree.showUserCount() && UserTree.mode() === "andUser";
     });
+    const checkedAll = ref(false);
     const breadcrumbList = ref<TreeNode[]>([]);
     const nodeList = ref<TreeNode[]>([]);
     const reset = () => {
@@ -108,6 +111,16 @@ export const UserTreeNodeList = defineComponent({
       emit("update:checkedNodes", checkedNodes);
     }
 
+    function toggleCheckedAll() {
+      checkedAll.value = !checkedAll.value;
+      const lastNode = breadcrumbList.value[breadcrumbList.value.length - 1];
+      if (lastNode) {
+        lastNode.children.forEach((node) => (node.checked = checkedAll.value));
+      } else {
+        nodeList.value.forEach((node) => (node.checked = checkedAll.value));
+      }
+      updateCheckedNodes();
+    }
     //watch deleteNode and changed checked state
     watch(
       () => props.deleteNode,
@@ -142,6 +155,17 @@ export const UserTreeNodeList = defineComponent({
           ))}
         </ol>
         <ul class={s.list}>
+          {UserTree.showAllCheckedButton() && UserTree.multiple() ? (
+            <li class={s.checkedAll}>
+              <input
+                type="checkbox"
+                class={s.checkbox}
+                checked={checkedAll.value}
+                onChange={(e: Event) => toggleCheckedAll()}
+              />
+              <span>全选</span>
+            </li>
+          ) : null}
           {nodeList.value.length === 0 ? (
             <li class={s.empty}>暂无数据</li>
           ) : (
