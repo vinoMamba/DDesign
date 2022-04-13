@@ -10,7 +10,12 @@ export const UserTreeOperationList = defineComponent({
             required: true
         }
     },
-    setup(props) {
+    emits: ["delete"],
+    setup(props, {emit}) {
+        function deleteNode(node: TreeNode) {
+            emit("delete", node)
+        }
+
         return () => {
             return (
                 <div>
@@ -23,7 +28,7 @@ export const UserTreeOperationList = defineComponent({
                             <li key={node.id} class={s.item}>
                                 <img src={node.avatar} alt=''/>
                                 <span class={s.name}>{node.name}</span>
-                                <i class={s.close} />
+                                <i class={s.close} onClick={() => deleteNode(node)}/>
                             </li>
                         ))}
                     </ul>

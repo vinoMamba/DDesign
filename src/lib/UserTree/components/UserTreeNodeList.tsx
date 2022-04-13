@@ -1,8 +1,8 @@
-import {computed, defineComponent, inject, onMounted, type PropType, ref} from "vue";
+import {computed, defineComponent, inject, onMounted, type PropType,  ref, watch, watchEffect} from "vue";
 import type {TreeNode} from "../type";
 import s from "./style/userTreeNodeList.module.css"
 import {type UserTreeInjection, userTreeInjection} from "@/lib/UserTree/UserTree";
-import {getCheckedNodes, traverseTree} from "@/lib/UserTree/utils";
+import {getCheckedNodes, traverseNodeList, traverseTree} from "@/lib/UserTree/utils";
 
 
 export const UserTreeNodeList = defineComponent({
@@ -11,6 +11,9 @@ export const UserTreeNodeList = defineComponent({
             list: {
                 type: Array as PropType<TreeNode[]>,
                 default: () => [],
+            },
+            deleteNode: {
+                type: Object as PropType<TreeNode>,
             },
         },
         emits: ["update:checkedNodes"],
@@ -70,6 +73,16 @@ export const UserTreeNodeList = defineComponent({
                 emit('update:checkedNodes', checkedNodes)
             }
 
+            //watch deleteNode and changed checked state
+            watch(() => props.deleteNode, (newVal) => {
+                //traverse  nodeList to find node
+                traverseNodeList(nodeList.value, (node: TreeNode) => {
+                    if (node.id === newVal!.id) {
+                        node.checked = false;
+                        updateCheckedNodes()
+                    }
+                })
+            })
             onMounted(() => {
                 updateNodeList(props.list, {mode: UserTree.mode()});
             });

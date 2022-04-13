@@ -8,6 +8,15 @@ export function traverseTree(node: TreeNode, callback: any) {
     }
     callback(node);
 }
+// traverse nodeList
+export function traverseNodeList(nodeList: TreeNode[], callback: any) {
+    nodeList.forEach(node => {
+        traverseTree(node, callback);
+    });
+}
+
+
+
 
 //get all checked nodes from nodeList
 export function getCheckedNodes(nodeList: TreeNode[]) {
