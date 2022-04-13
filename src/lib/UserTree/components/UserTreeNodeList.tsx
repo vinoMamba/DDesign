@@ -74,15 +74,26 @@ export const UserTreeNodeList = defineComponent({
     }
 
     function toggleChecked(e: Event, node: TreeNode) {
-      node.checked = !node.checked;
-      // change children checked state
-      traverseTree(node, (n: TreeNode) => {
-        n.checked = node.checked;
-      });
-      // change parent checked state
-      updateParentCheckedState();
+      if (UserTree.multiple()) {
+        node.checked = !node.checked;
+        // change children checked state
+        traverseTree(node, (n: TreeNode) => {
+          n.checked = node.checked;
+        });
+        // change parent checked state
+        updateParentCheckedState();
+      } else {
+        setBrotherNodeCheckedState();
+        node.checked = !node.checked;
+      }
       updateCheckedNodes();
     }
+
+    function setBrotherNodeCheckedState() {
+      const lastNode = breadcrumbList.value[breadcrumbList.value.length - 1];
+      lastNode && lastNode.children.forEach((n) => (n.checked = false));
+    }
+
     function updateParentCheckedState() {
       const lastNode = breadcrumbList.value[breadcrumbList.value.length - 1];
       if (lastNode && lastNode.children.every((n) => n.checked)) {
