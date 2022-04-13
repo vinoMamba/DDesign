@@ -17,6 +17,7 @@ import {
   getCheckedNodes,
   traverseNodeList,
   traverseTree,
+  traverseTreeByType,
 } from "@/lib/UserTree/utils";
 import { listenerCount } from "process";
 
@@ -55,6 +56,7 @@ export const UserTreeNodeList = defineComponent({
       updateNodeList(props.list, { mode: UserTree.mode() });
     };
     const getNext = (node: TreeNode) => {
+      checkedAll.value = false;
       if (node.type === 1) return;
       breadcrumbList.value.push(node);
       updateNodeList(node.children, { mode: UserTree.mode() });
@@ -80,9 +82,15 @@ export const UserTreeNodeList = defineComponent({
       if (UserTree.multiple()) {
         node.checked = !node.checked;
         // change children checked state
-        traverseTree(node, (n: TreeNode) => {
-          n.checked = node.checked;
-        });
+        if (UserTree.mode() === "department") {
+          traverseTreeByType(node, 0, (n: TreeNode) => {
+            n.checked = node.checked;
+          });
+        } else {
+          traverseTree(node, (n: TreeNode) => {
+            n.checked = node.checked;
+          });
+        }
         // change parent checked state
         updateParentCheckedState();
       } else {
